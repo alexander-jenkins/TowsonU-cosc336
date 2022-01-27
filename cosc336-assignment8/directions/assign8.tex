@@ -1,0 +1,221 @@
+\iffalse
+
+INSTRUCTIONS: (if this is not lecture1.tex, use the right file name)
+
+  Clip out the ********* INSERT HERE ********* bits below and insert
+appropriate TeX code.  Once you are done with your file, run
+
+  ``latex lecture1.tex''
+
+from a UNIX prompt.  If your LaTeX code is clean, the latex will exit
+back to a prompt.  Once this is done, run
+
+  ``dvips lecture1.dvi''
+
+which should print your file to the nearest printer.  There will be
+residual files called lecture1.log, lecture1.aux, and lecture1.dvi.
+All these can be deleted, but do not delete lecture1.tex.
+\fi
+%
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+ 
+\urlstyle{same}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+
+\newcommand{\handout}[5]{
+   %\renewcommand{\thepage}{#1-\arabic{page}}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf Data Structures and Algorithms} \hfill #2 }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+       \vspace{2mm}
+       \hbox to 5.78in { {\it #3 \hfill #4} }
+      }
+   }
+   \end{center}
+   \vspace*{4mm}
+}
+
+\newcommand{\lecture}[3]{\handout{L#1}{#2}{}{}{#1}}
+
+\def\squarebox#1{\hbox to #1{\hfill\vbox to #1{\vfill}}}
+\def\qed{\hspace*{\fill}
+        \vbox{\hrule\hbox{\vrule\squarebox{.667em}\vrule}\hrule}}
+\newenvironment{solution}{\begin{trivlist}\item[]{\bf Solution:}}
+                      {\qed \end{trivlist}}
+\newenvironment{solsketch}{\begin{trivlist}\item[]{\bf Solution Sketch:}}
+                      {\qed \end{trivlist}}
+\newenvironment{proof}{\begin{trivlist}\item[]{\bf Proof:}}
+                      {\qed \end{trivlist}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{Assertion}[theorem]{Assertion}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+%\newtheorem{observation}[theorem]{Observation}
+%\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+
+%Put more macros here, as needed.
+\newcommand{\al}{\alpha}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\jac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\set}[1]{\{#1\}}
+
+\def\ppt{{\sf PPT}}
+\def\poly{{\sf poly}}
+\def\negl{{\sf negl}}
+\def\owf{{\sf OWF}}
+\def\owp{{\sf OWP}}
+\def\tdp{{\sf TDP}}
+\def\prg{{\sf PRG}}
+\def\prf{{\sf PRF}}
+
+%end of macros
+\begin{document}
+
+\lecture{COSC  336 		Assignment 8}{}{}
+
+\textbf{Instructions.}
+\begin{enumerate}
+\item Due  November 11.
+
+\item Your programs must be written in Java.
+
+\item Write your programs neatly - imagine yourself grading your program and see if it is easy to read and understand. 
+At the very beginning present your algorithm in plain English or in pseudo-code (or both).
+Comment your programs reasonably: there is no need to comment lines like "i++" but do include brief comments describing the main purpose of a specific block of lines.
+
+\item  You will submit on Blackboard 2 files. The first file should be a .pdf file  with the solution to the exercises and with  descriptions in English or in pseudocode of the algorithm  for the  programming task  you are required to do and the results that you are required to report.
+Make sure you label the results as indicated below.   Also insert images/screenshots with the output you obtain for each testing data. The second file will contain  the  Java source of your program.
+
+
+
+
+
+%Staple all pages together.  You should have the electronic copy  of your programs with you (for example on a memory stick) because you may be asked to make a demo.
+
+For editing the above document with  Latex, see the template posted on the course website. 
+ 
+           assignment-template.tex	and
+           
+          assignment-template.pdf
+
+
+To append in the  latex file  a pdf file, place it  in the same folder and then include them  in the latex file with 
+\begin{verbatim}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{file.pdf}
+
+\end{verbatim}
+To append in the  latex file a .jpg file (for a photo), use 
+\begin{verbatim}
+\includegraphics[width=\linewidth]{file.jpg}
+
+\end{verbatim}
+
+
+\end{enumerate}
+\newpage
+
+
+%%%%%%%%%%%%%%
+
+\textbf{Exercise 1.} Show similarly to Fig 8.3 on page 198 in the textbook, how \textsf{RadixSort} sorts the following arrays:
+\begin{enumerate}
+\item 34, 9134, 20134, 29134, 4, 134
+\item 4, 34, 134, 9134, 20134, 29134
+\item 29134, 20134, 9134, 134, 34, 4
+\end{enumerate}
+
+\textbf{Exercise 2.} Present an $O(n)$ algorithm that sorts $n$ positive integer numbers  $a_1, a_2, \ldots, a_n$ which are known to be bounded by $n^2-1$ (so $0 \leq a_i \leq n^2-1$, for every $i=1, \ldots, n$. Use the idea of Radix Sort  (discussed in class and presented in Section 8.3 in the textbook).
+
+Note that in order to obtain $O(n)$ you have to adapt the Radix Sort algorithm. The idea is to represent each number in a base chosen so that  each number  requires only $2$ ``digits."  Explain what are the ``digits, " and  how the ``digits" of each number are calculated.  Note that you cannot use the base 10 representation, because $n^2-1$ (which is the largest possible value) requires $\log_{10} (n^2-1)$ digits in base $10$, which is obviously not constant and therefore you would not obtain an $O(n)$-time algorithm.
+
+Illustrate your algorithm by showing on paper similar to Fig. 8.3, page 198 in the textbook (make sure you indicate clearly the columns)  how the algorithm sorts the following sequence of 12 positive integers: 
+
+45, 98, 3, 82, 132, 71, 72, 143, 91, 28, 7, 45.
+
+In this example $n=12$, because there are $12$ positive numbers in the sequence bounded by $143 = 12^2 - 1$. 
+\bigskip
+
+%\textbf{Exercise 11.4-1, page 277, in the textbook.}  
+%\bigskip
+
+
+\textbf{Programming Task.}
+
+We are given a sequence of $n$  numbers $a_1, a_2, \ldots, a_n$. Your task is to determine two things: (1)  whether
+there exists an integer $x$ that occurs in the sequence more than $n/2$ times, and (2) whether
+there exists an integer $x$ that occurs in the sequence more than $n/3$ times. See the example in the file input-8.1.txt and the answers in the file answer-8.1.txt.   Design an
+algorithm that runs in time $O(n)$ using the \textsf{Randomized Selection} algorithm -  see Section 9.2 in the textbook.
+
+Hint: Using \textsf{Randomized Selection}, you can find a single ``suspect" for the number that may appear more than $n/2$ times. To find the 'suspect', think what  would be the median of an array containing some value more than $n/2$ times. Once you have a suspect, you can verify if it actually appears more than $n/2$ times or not by doing one pass through the area to count the number of occurrences.
+
+For the second part with more than $n/3$ appearances, using Randomized Select, you can find two possible ``suspects", and then you can check each one of them to see if it has the required number of occurrences.
+\medskip
+
+ (Note: since the algorithm is randomized, the $O(n)$ bounds the \emph{expected} running time). 
+\medskip
+
+
+Input specification: The input contains two lines. The first line contains $n$ and the second line contains the integers $a_1,a_2,\ldots, a_n$, separated by spaces. You may assume that all numbers fit within int and that $n$ is not bigger than 10,000. 
+
+Output specification: The output contains two lines  containing as answers to the two questions  the strings "YES" or "NO" (see the sample outputs below) . 
+
+
+
+
+
+Sample input :
+
+
+ 
+   input-8.1.txt
+  
+
+
+
+Sample output:
+ 
+ answer-8.1.txt
+
+
+\medskip
+
+Test your program on the following input files:
+
+input-8.2.txt
+ input-8.3.txt  
+
+
+and report the results you have obtained for these two inputs.
+
+
+\end{document}
