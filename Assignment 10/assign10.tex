@@ -1,0 +1,221 @@
+\iffalse
+
+INSTRUCTIONS: (if this is not lecture1.tex, use the right file name)
+
+  Clip out the ********* INSERT HERE ********* bits below and insert
+appropriate TeX code.  Once you are done with your file, run
+
+  ``latex lecture1.tex''
+
+from a UNIX prompt.  If your LaTeX code is clean, the latex will exit
+back to a prompt.  Once this is done, run
+
+  ``dvips lecture1.dvi''
+
+which should print your file to the nearest printer.  There will be
+residual files called lecture1.log, lecture1.aux, and lecture1.dvi.
+All these can be deleted, but do not delete lecture1.tex.
+\fi
+%
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\usepackage{tikz-qtree}
+\usetikzlibrary{automata,arrows}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+ 
+\urlstyle{same}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6.4in}
+\setlength{\topmargin}{-0.7in}
+\setlength{\textheight}{8.9in}
+
+\newcommand{\handout}[5]{
+   %\renewcommand{\thepage}{#1-\arabic{page}}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf Data Structures and Algorithms} \hfill #2 }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+       \vspace{2mm}
+       \hbox to 5.78in { {\it #3 \hfill #4} }
+      }
+   }
+   \end{center}
+   \vspace*{4mm}
+}
+
+\newcommand{\lecture}[3]{\handout{L#1}{#2}{}{}{#1}}
+
+\def\squarebox#1{\hbox to #1{\hfill\vbox to #1{\vfill}}}
+\def\qed{\hspace*{\fill}
+        \vbox{\hrule\hbox{\vrule\squarebox{.667em}\vrule}\hrule}}
+\newenvironment{solution}{\begin{trivlist}\item[]{\bf Solution:}}
+                      {\qed \end{trivlist}}
+\newenvironment{solsketch}{\begin{trivlist}\item[]{\bf Solution Sketch:}}
+                      {\qed \end{trivlist}}
+\newenvironment{proof}{\begin{trivlist}\item[]{\bf Proof:}}
+                      {\qed \end{trivlist}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{Assertion}[theorem]{Assertion}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+%\newtheorem{observation}[theorem]{Observation}
+%\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+
+%Put more macros here, as needed.
+\newcommand{\al}{\alpha}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\jac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\set}[1]{\{#1\}}
+
+\def\ppt{{\sf PPT}}
+\def\poly{{\sf poly}}
+\def\negl{{\sf negl}}
+\def\owf{{\sf OWF}}
+\def\owp{{\sf OWP}}
+\def\tdp{{\sf TDP}}
+\def\prg{{\sf PRG}}
+\def\prf{{\sf PRF}}
+
+%end of macros
+\begin{document}
+
+
+
+\fbox{
+\vbox{
+\begin{flushleft}
+Ann,  Bob, Charlie    (\emph{replace with your names})\\  % authors' names
+COSC 336  \\  %class
+11/10/2020   (\emph{replace with the current date})\\  % date
+\end{flushleft}
+\center{\Large{\textbf{Assignment 10}}}
+%\end{mdframed}
+} % end vbox
+} % end fbox
+\vline
+
+\textbf{Instructions.}
+\begin{enumerate}
+\item Due  Dec 2.
+
+
+
+\item This is a team assignment. Work in teams of 3-4 students.  Submit one assignment per team, with the names of all students making the team.
+
+
+\item Your programs must be written in Java.
+
+\item Write your programs neatly - imagine yourself grading your program and see if it is easy to read and understand. 
+At the very beginning present your algorithm in plain English or in pseudo-code (or both).
+Comment your programs reasonably: there is no need to comment lines like "i++" but do include brief comments describing the main purpose of a specific block of lines.
+
+\item  You will submit on Blackboard 2 files. The first file should be a .pdf file  with the solutions of  Exercise  1 and Exercise  2,  and also with  a short description  in English or in pseudocode of the algorithm  for the  programming task  and the results that you are required to report. File 2 will contain the java codes of the program.
+
+
+
+
+
+
+
+For editing the above document with  Latex, see the template posted on the course website. 
+ 
+           assignment-template.tex	and
+           
+          assignment-template.pdf
+
+
+To append in the  latex file  a pdf file, place it  in the same folder and then include them  in the latex file with 
+\begin{verbatim}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{file.pdf}
+
+\end{verbatim}
+To append in the  latex file a .jpg file (for a photo), use 
+\begin{verbatim}
+\includegraphics[width=\linewidth]{file.jpg}
+
+\end{verbatim}
+
+
+\end{enumerate}
+
+
+
+
+
+\newpage
+
+
+
+
+
+
+
+\textbf{Exercise 1.}
+Exercise 22.3 -2, page 610 in the textbook.
+\medskip
+
+\emph{Notes:} 
+
+$\bullet$ Read first the version of the  DFS algorithm in the textbook on page 604 (it is also in Notes 10- graph traversals). This DFS traversal for directed graphs (called DFS with timing) assigns two numbers to each vertex: d (which is the discovery time) and f (which is called the finishing time). For the classification of edges you can use the information in Exercise 22.3.-5 (you don't have to solve this exercise, just use the given relations).
+
+$\bullet$ Take into account the stipulations about processing vertices in alphabetical order (when you have to choose between two vertices). Otherwise I cannot grade your solution.   Draw the graph (do it by hand if you have  a hard time using tikz for this) and the \emph{d} and \emph{f} numbers next to each vertex. For the classification of all edges,  make  a table with two columns in which in the first column you write the edge and in the second column you indicate the type of the edge (tree, forward, back, or cross).
+ \bigskip
+
+\textbf{Exercise 2.}  Describe  an algorithm that computes the shortest path from a given node $s$ (called the \emph{source}) to all the other nodes in an undirected graph $G$  in which the edges can have the weights $1$ or $2$.  Your algorithm should have runtime $O(n+m)$. Hint: you can use an idea that I said is bad  in Notes 11, but which actually  works fine for this set of weights. Describe your algorithm in plain English in a clear and concise way.
+
+
+
+
+\bigskip
+
+
+\textbf{Programming Task.}
+
+
+In a weighted directed graph $G=(V,E)$, the \emph{eccentricity} of a vertex $v \in V$ is defined by
+\[
+\textrm{ecc}(v) = \max \{\delta(v,u) \mid u \in V\},
+\]
+where $\delta(v,u)$ is the weight of a shortest path from $v$ to $u$ (in other words $\textrm{ecc}(v)$ is the smallest distance to the vertex $u$ that is the furthest from $v$).
+
+Write a Java program that computes the eccentricity of every vertex. Describe the method you are using.
+
+The graph is given in a file that has two lines. The first line has $n$ (the number of nodes, which are  labeled $0,1, \ldots, n-1$) and the second line has a list of $n^2$ numbers $w_0, w_1, \ldots, w_{n^2 -1}$, where $w_k$ is the weight of the edge $(i,j)$ for $i=k/n$ and $j = k \pmod{n}$ (if $w_k = -1$, then there is no edge from $i$ to $j$).  Your program should read the file, build the adjacency matrix representation of $G$, and then compute with your method the eccentricities of all vertices. 
+
+Test your program on the graphs given in the files indicated  and report the eccentricities.
+
+input-10.1
+
+input-10.2
+
+
+
+
+ 
+
+\end{document}

@@ -1,0 +1,234 @@
+\iffalse
+
+INSTRUCTIONS: (if this is not lecture1.tex, use the right file name)
+
+  Clip out the ********* INSERT HERE ********* bits below and insert
+appropriate TeX code.  Once you are done with your file, run
+
+  ``latex lecture1.tex''
+
+from a UNIX prompt.  If your LaTeX code is clean, the latex will exit
+back to a prompt.  Once this is done, run
+
+  ``dvips lecture1.dvi''
+
+which should print your file to the nearest printer.  There will be
+residual files called lecture1.log, lecture1.aux, and lecture1.dvi.
+All these can be deleted, but do not delete lecture1.tex.
+\fi
+%
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{graphics}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+ 
+\urlstyle{same}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+
+\newcommand{\handout}[5]{
+   %\renewcommand{\thepage}{#1-\arabic{page}}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf Data Structures and Algorithms} \hfill #2 }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+       \vspace{2mm}
+       \hbox to 5.78in { {\it #3 \hfill #4} }
+      }
+   }
+   \end{center}
+   \vspace*{4mm}
+}
+
+\newcommand{\lecture}[3]{\handout{L#1}{#2}{}{}{#1}}
+
+\def\squarebox#1{\hbox to #1{\hfill\vbox to #1{\vfill}}}
+\def\qed{\hspace*{\fill}
+        \vbox{\hrule\hbox{\vrule\squarebox{.667em}\vrule}\hrule}}
+\newenvironment{solution}{\begin{trivlist}\item[]{\bf Solution:}}
+                      {\qed \end{trivlist}}
+\newenvironment{solsketch}{\begin{trivlist}\item[]{\bf Solution Sketch:}}
+                      {\qed \end{trivlist}}
+\newenvironment{proof}{\begin{trivlist}\item[]{\bf Proof:}}
+                      {\qed \end{trivlist}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{Assertion}[theorem]{Assertion}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+%\newtheorem{observation}[theorem]{Observation}
+%\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+
+%Put more macros here, as needed.
+\newcommand{\al}{\alpha}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\jac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\set}[1]{\{#1\}}
+
+\def\ppt{{\sf PPT}}
+\def\poly{{\sf poly}}
+\def\negl{{\sf negl}}
+\def\owf{{\sf OWF}}
+\def\owp{{\sf OWP}}
+\def\tdp{{\sf TDP}}
+\def\prg{{\sf PRG}}
+\def\prf{{\sf PRF}}
+
+%end of macros
+\begin{document}
+
+\fbox{
+\vbox{
+\begin{flushleft}
+Ann,  Bob, Charlie    (\emph{replace with your names})\\  % authors' names
+COSC 336 \\  %class
+3/19/2020\\  % date
+\end{flushleft}
+\center{\Large{\textbf{Assignment 5}}}
+} % end vbox
+} % end fbox
+\vline
+
+%\fbox{\vbox{
+\textbf{Instructions.}
+\begin{enumerate}
+\item Due October 14.
+
+\item This is a team assignment. Work in teams of 3-4 students.  Submit one assignment per team, with the names of all students making the team.
+\item Your programs must be written in Java.
+\item Write your programs neatly - imagine yourself grading your program and see if it is easy to read and understand. 
+At the very beginning present your algorithm in plain English or in pseudo-code (or both).
+Comment your programs reasonably: there is no need to comment lines like "i++" but do include brief comments describing the main purpose of a specific block of lines.
+\item  You will submit on Blackboard 2 files. The first file should be a .pdf file  with the solution to Exercise 1and with  descriptions in English or in pseudocode of the algorithms  for the  programming task  you are required to do and the results that you are required to report.
+Make sure you label the results as indicated below.   Also insert images/screenshots with the output you obtain for each testing data. The second file  will contain  the  Java sources of your two programs.
+
+
+
+
+
+%Staple all pages together.  You should have the electronic copy  of your programs with you (for example on a memory stick) because you may be asked to make a demo.
+
+For editing the above document with  Latex, see the template posted on the course website. 
+ 
+           assignment-template.tex	and
+           
+          assignment-template.pdf
+
+
+To append in the  latex file  a pdf file, place it  in the same folder and then include them  in the latex file with 
+\begin{verbatim}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{file.pdf}
+
+\end{verbatim}
+To append in the  latex file a .jpg file (for a photo), use 
+\begin{verbatim}
+\includegraphics[width=\linewidth]{file.jpg}
+
+\end{verbatim}
+
+
+\end{enumerate}
+\newpage
+
+
+%\includepdf[pages=-,pagecommand={},width=\textwidth]{assign1.pdf}
+
+\textbf{Exercise 1 (has two questions:)}
+\begin{enumerate}
+\item \textbf{Exercise 6.1-6, textbook page 154.} 
+
+
+
+\item \textbf{Exercise 6.1-7, textbook, page 154.} 
+
+Hint: You need to show that in the tree view of a heap  the nodes indexed with $\lfloor n/2 \rfloor +1,  \lfloor n/2 \rfloor +2, \ldots, n$ do not have children (so they are leaves) and also that the nodes indexed with $1, 2, \ldots, \lfloor n/2 \rfloor$ have at least one child (and consequently they are not leaves). You can consider separately the case when $n=2k$ ($n$ is even), and $n=2k+1$ ($n$ is odd). See also the formulas on page 152.
+\end{enumerate}
+\bigskip
+
+
+
+\textbf{Programming Task 1.}
+
+The input consists of  a sequence of numbers $a[1], a[2,] \ldots, a[n]$. Your task is to design an $O(n^2)$ algorithm that finds an
+increasing subsequence with the maximum possible sum. An increasing subsequence  is given by a sequence of indices $1 \leq i_1 < i_2 < \ldots < i_k \leq n$ such  that $a[i_1]  \leq a_[i_2] \leq \ldots \leq a_[i_k]$. Note the the indices defining the subsequence are not necessarily consecutive numbers. The program will output the max sum and the increasing subsequence with that sum.
+
+Your algorithm should work in time $O(n^2)$.
+
+For example, for sequence $1, 14, 5,  6, 2, 3$, the increasing subsequence $1, 14$  has the largest sum $1 + 14 = 15$. ($1,5,6$ is another increasing subsequence but its sum, $1+5+6 = 12$ is smaller.)
+
+
+Input specification: the first line contains $n$ and the second line contains $a_1, \ldots, a_n$. Numbers on the same line are separated by spaces. You may assume that $n$ is not bigger than $10,000$ and all the numbers fit in int. 
+
+Output specification: the output contains the maximum possible sum of an increasing subsequence (note: you do not have to compute the subsequence itself, just the maximum possible sum). 
+
+
+
+Sample inputs :
+ 
+  input-5.1.txt
+
+  input-5.2.txt
+
+
+
+Sample outputs :
+ 
+ answer-5.1.txt 
+
+ answer-5.2.txt 
+
+\medskip
+
+Test your program on the following inputs:
+
+   input-5.3.txt
+
+input-5.4.txt
+
+and report in a table the results you have obtained for these two inputs. Label the results with appropriate text, for example "output for file 
+input-*.*.txt", or something similar.
+\medskip
+
+
+Hint:  You should use a dynamic programming algorithm.   For each $i \leq n$, define 
+
+$s[i]$ = max sum of an increasing subsequence with last element $a[i]$, and
+
+$p[i]$ = index of the element preceding $a[i]$ in  an increasing subsequence with max sum and last element $a[i]$.
+
+  You start with $s[1]=a[1]$ and $p[1]=-1$ (-1 is a just a conventional value that indicates that $a[1]$ has no predecessor), and then in order you compute $s[2], s[3], \ldots s[n]$ and $p[2], \ldots, p[n]$. You need to think how to compute $s[i]$, using the preceding $s[j]$, $j < i$.  At the end,  you get the the subsequence in reverse order from last element to the first element. More precisely,  first you find the last element  of an  increasing subsequence with max sum, and next,  starting  from the last element, you go from predecessor to predecessor and construct the subsequence. 
+
+
+
+\bigskip
+
+
+
+\end{document}
